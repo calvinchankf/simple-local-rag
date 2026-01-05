@@ -1,11 +1,10 @@
-# Local AI Starter - Qwen 3 + Ollama
+# Local simple RAG - Qwen 3 + Ollama
 
-A free local RAG and AI agent with Qwen 3 models using Ollama. This starter repo includes implementations for RAG (Retrieval-Augmented Generation) and AI Agents following the article: https://www.freecodecamp.org/news/build-a-local-ai/
+A free local RAG with Qwen 3 models using Ollama. This starter repo includes implementations for RAG (Retrieval-Augmented Generation) following the part 1 of the article: https://www.freecodecamp.org/news/build-a-local-ai/ . (I didn't put the part 2 in, because MCP is more robust / relevant to build agent tools instead) 
 
 ## Features
 
 - **RAG System**: Query PDF documents using local AI with HuggingFace Sentence Transformers embeddings
-- **AI Agents**: Build intelligent agents with custom tools
 - Fully local - no API keys or cloud services required
 - Uses Qwen 3 models via Ollama for generation
 - Uses Sentence Transformers for embeddings (automatically downloaded on first run)
@@ -98,20 +97,6 @@ The script will:
 
 Once running, you can ask questions about your document. Type `quit` or `exit` to stop, or press Ctrl+C.
 
-### AI Agent System
-
-Run intelligent agents with custom tools:
-
-```bash
-python agent_local.py
-```
-
-The included agent can:
-- Get current date/time in any format
-- Use tools based on your queries
-
-Extend by adding more `@tool` decorated functions in `agent_local.py`.
-
 ## Project Structure
 
 ```
@@ -119,7 +104,6 @@ local-ai-starter/
 ├── data/                  # Place your PDF documents here
 ├── chroma_db/            # Vector database (created automatically)
 ├── rag_local.py          # RAG implementation
-├── agent_local.py        # AI Agent implementation
 ├── requirements.txt      # Python dependencies
 ├── .gitignore           # Git ignore rules
 └── README.md            # This file
@@ -135,13 +119,6 @@ Edit `rag_local.py` to:
 - Change retrieval count: Update `k` value in `create_rag_chain()`
 - Switch models: Change `llm_model_name` parameter
 - Use different embeddings: Change `model_name` in `get_embedding_function()` (e.g., "all-mpnet-base-v2")
-
-### AI Agents
-
-Edit `agent_local.py` to:
-- Add new tools: Create functions with `@tool` decorator
-- Change model: Update `model_name` in `get_agent_llm()`
-- Modify behavior: Adjust `temperature` parameter
 
 ### Advanced: Qwen 3 Thinking Mode
 
